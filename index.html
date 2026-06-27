@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ameh Queen Lovina — Pharm.D Student &amp; Pharmacy Technician</title>
+<meta name="description" content="Portfolio of Ameh Queen Lovina, Doctor of Pharmacy student at Ahmadu Bello University and Pharmacy Technician." />
+
+<!--
+========================================================================
+  EDITING GUIDE — read this before you change anything
+========================================================================
+  This is ONE file. Open it in any text editor (Notepad, TextEdit,
+  VS Code, etc.), make changes, save, and refresh the browser to see
+  them. No build tools or internet connection are needed to edit it
+  (the page does load two web fonts online; see FONTS note below).
+
+  1. COLORS & FONTS
+     All colors live in one place: the ":root { ... }" block near the
+     top of the style section below. Change a value there and it
+     updates everywhere on the page automatically.
+
+  2. TEXT CONTENT
+     Each part of the page is wrapped in a "section" tag and is clearly
+     labelled just above with a short note saying which section it is
+     (for example, one says SECTION: Education). Find the section you
+     want to change and edit the words inside it. Don't delete the
+     tags themselves, just the words between them.
+
+  3. ADDING A NEW SKILL OR CERTIFICATION
+     These are small pill-shaped tags. Find the list of pills in that
+     section, copy one whole pill line (it looks like one short line
+     starting with "li class=pill"), paste it on a new line, and
+     change the text.
+
+  4. ADDING A NEW JOB OR EDUCATION ENTRY
+     These are "timeline items". Find a block that starts with a note
+     saying TIMELINE ITEM and ends at the matching closing tag a few
+     lines down, copy the whole block, paste it above or below, and
+     edit the title, dates, and bullet points inside.
+
+  5. ADDING REAL REFEREES
+     A ready-to-use example card is included but turned off near the
+     bottom of the Referees section. Search for the words REFEREE
+     CARD EXAMPLE, then remove the two comment markers wrapping that
+     block (one just before it, one just after) to turn it on.
+     Duplicate it for a second referee and fill in the real details.
+
+  6. FONTS (online dependency)
+     Headings use "Cormorant Garamond" and body/labels use "Jost",
+     loaded from Google Fonts in the head below. If this site will
+     run somewhere without internet access, remove the Google Fonts
+     link tags and the page will fall back to the system fonts listed
+     in --font-display / --font-body.
+
+  7. PHOTO (optional)
+     Right now the hero shows your name in type, with no photo. To
+     add one, find the "hero" section and add an image tag wherever
+     you'd like — an .avatar style is included below, ready to use:
+       <img src="your-photo.jpg" alt="Ameh Queen Lovina" class="avatar">
+
+  8. THE GOLD LEAF MOTIF
+     The small leaf icon and the flourish (line + leaves) are reused
+     throughout for a consistent, elegant feel. They're both defined
+     once near the top of the body and reused everywhere else, so you
+     don't need to touch them unless you want to redesign the look.
+========================================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  /* ====================================================================
+     1. DESIGN TOKENS — change these to retheme the whole site
+     ==================================================================== */
+  :root{
+    /* --- Color --- */
+    --emerald:      #112E22;  /* deep hero/footer background */
+    --emerald-soft: #1E4936;  /* lighter emerald for subtle depth/gradients */
+    --gold:         #AD8A47;  /* primary accent — text, lines, borders */
+    --gold-light:   #DCC58D;  /* lighter gold — text on dark backgrounds */
+    --gold-wash:    #F3ECDC;  /* faint gold tint — hover fills */
+    --ivory:        #FAF7F0;  /* main page background */
+    --ivory-raised: #FFFFFF;  /* cards sitting on ivory */
+    --charcoal:     #20231F;  /* primary text */
+    --charcoal-soft:#5C6058;  /* secondary text */
+    --hairline:     #E7E0CF; /* dividers on ivory */
+
+    /* --- Type --- */
+    --font-display: "Cormorant Garamond", "Times New Roman", Georgia, serif;
+    --font-body:    "Jost", "Segoe UI", Arial, sans-serif;
+
+    /* --- Layout --- */
+    --content-max: 700px;
+  }
+
+  /* ====================================================================
+     2. RESET & BASE
+     ==================================================================== */
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce){
+    html{ scroll-behavior: auto; }
+    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+  body{
+    margin: 0;
+    background: var(--ivory);
+    color: var(--charcoal);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3{ font-family: var(--font-display); margin: 0; font-weight: 600; color: var(--emerald); }
+  p{ margin: 0 0 1em 0; }
+  ul{ margin: 0; padding: 0; list-style: none; }
+  a{ color: var(--emerald); text-decoration: none; }
+  a:hover{ color: var(--gold); }
+  img.avatar{ width: 120px; height: 120px; border-radius: 50%; object-fit: cover; border: 2px solid var(--gold); }
+
+  :focus-visible{
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  .sr-only{
+    position: absolute; width: 1px; height: 1px;
+    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
+  }
+
+  /* ====================================================================
+     3. SHARED ORNAMENT: leaf symbol + flourish (the page's signature)
+     ==================================================================== */
+  .icon-defs{ position: absolute; width: 0; height: 0; overflow: hidden; }
+
+  .leaf-mark{ color: var(--gold); flex-shrink: 0; }
+
+  .flourish{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    width: 100%;
+    max-width: 360px;
+    margin: 0 auto;
+    color: var(--gold);
+  }
+  .flourish .line{ flex: 1; height: 1px; background: currentColor; opacity: 0.55; }
+  .flourish .sprig{ width: 30px; height: 26px; flex-shrink: 0; }
+  .flourish.on-dark{ color: var(--gold-light); }
+  .flourish.on-dark .line{ opacity: 0.6; }
+
+  /* ====================================================================
+     4. HERO
+     ==================================================================== */
+  .hero{
+    background: radial-gradient(ellipse 120% 100% at 50% -10%, var(--emerald-soft), var(--emerald) 65%);
+    color: var(--ivory);
+    padding: 110px 24px 64px;
+    text-align: center;
+    position: relative;
+  }
+  .hero-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .hero-ornament{ width: 64px; height: 130px; flex-shrink: 0; color: var(--gold); opacity: 0.85; }
+  .hero-ornament.right{ transform: scaleX(-1); }
+  .hero-ornament use{ transform-box: fill-box; transform-origin: center; }
+  .hero-ornament .t1{ transform: rotate(-12deg); }
+  .hero-ornament .t2{ transform: rotate(10deg); }
+  .hero-ornament .t3{ transform: rotate(-9deg); }
+
+  .hero h1{
+    color: var(--ivory);
+    font-size: clamp(40px, 6vw, 64px);
+    letter-spacing: 0.01em;
+    line-height: 1.08;
+    font-weight: 500;
+  }
+  .hero .role{
+    margin-top: 14px;
+    font-family: var(--font-body);
+    font-weight: 400;
+    font-size: 13.5px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+  .hero .flourish{ margin-top: 30px; margin-bottom: 30px; }
+
+  .contact-row{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    font-size: 14.5px;
+    color: #E7EFE9;
+  }
+  .contact-row a{ color: #E7EFE9; }
+  .contact-row a:hover{ color: var(--gold-light); }
+  .contact-row li{ display: flex; align-items: center; }
+  .contact-row li + li::before{
+    content: "";
+    display: inline-block;
+    width: 5px; height: 5px;
+    background: var(--gold);
+    transform: rotate(45deg);
+    margin: 0 16px;
+    flex-shrink: 0;
+  }
+
+  .cv-button{
+    display: inline-block;
+    margin-top: 34px;
+    font-family: var(--font-body);
+    font-size: 12.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    background: transparent;
+    border: 1px solid var(--gold);
+    padding: 13px 28px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease;
+  }
+  .cv-button:hover{ background: var(--gold); color: var(--emerald); }
+
+  /* ====================================================================
+     5. STICKY NAV
+     ==================================================================== */
+  nav.sitenav{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(250,247,240,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--hairline);
+  }
+  nav.sitenav ul{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 16px;
+    overflow-x: auto;
+  }
+  nav.sitenav a{
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    padding: 16px 14px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--charcoal-soft);
+  }
+  nav.sitenav a::after{
+    content: "";
+    position: absolute;
+    left: 14px; right: 14px; bottom: 9px;
+    height: 1px;
+    background: var(--gold);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+  nav.sitenav a:hover{ color: var(--emerald); }
+  nav.sitenav a.active{ color: var(--emerald); }
+  nav.sitenav a.active::after{ transform: scaleX(1); }
+
+  /* ====================================================================
+     6. MAIN CONTENT
+     ==================================================================== */
+  main{ padding: 0 24px; }
+  .content{
+    max-width: var(--content-max);
+    margin: 0 auto;
+  }
+
+  section{ padding: 72px 0; border-bottom: 1px solid var(--hairline); scroll-margin-top: 56px; }
+  section:last-of-type{ border-bottom: none; padding-bottom: 56px; }
+
+  .eyebrow{
+    display: block;
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .section-title{
+    font-size: clamp(26px, 3vw, 32px);
+    margin-bottom: 26px;
+  }
+
+  .lead{
+    font-size: 18px;
+    color: var(--charcoal);
+    max-width: 620px;
+  }
+
+  /* ====================================================================
+     7. TIMELINE (Education / Experience)
+     ==================================================================== */
+  .timeline{ display: flex; flex-direction: column; gap: 36px; }
+  .timeline-item{ display: flex; gap: 16px; }
+  .timeline-item .leaf-mark{ width: 22px; height: 22px; margin-top: 4px; transform: rotate(8deg); transform-box: fill-box; transform-origin: center; }
+
+  .timeline-content{ flex: 1; min-width: 0; }
+  .timeline-head{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 6px 16px;
+  }
+  .timeline-head h3{ font-size: 21px; font-weight: 600; color: var(--charcoal); }
+  .meta-tag{
+    font-family: var(--font-body);
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--gold);
+    white-space: nowrap;
+    text-transform: uppercase;
+  }
+  .timeline-sub{
+    margin-top: 3px;
+    color: var(--charcoal-soft);
+    font-style: italic;
+    font-family: var(--font-display);
+    font-size: 17px;
+  }
+  .responsibility-list{ margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+  .responsibility-list li{
+    position: relative;
+    padding-left: 20px;
+    font-size: 15.5px;
+    color: var(--charcoal);
+  }
+  .responsibility-list li::before{
+    content: "—";
+    position: absolute;
+    left: 0; top: 0;
+    color: var(--gold);
+  }
+
+  /* ====================================================================
+     8. PILLS (Skills / Certifications / Hobbies)
+     ==================================================================== */
+  .pill-list{ display: flex; flex-wrap: wrap; gap: 12px; }
+  .pill{
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    letter-spacing: 0.02em;
+    padding: 9px 18px;
+    border-radius: 2px;
+    background: var(--ivory-raised);
+    border: 1px solid var(--gold);
+    color: var(--emerald);
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+  .pill:hover{ background: var(--gold-wash); transform: translateY(-1px); }
+  .pill.soft{ border-style: solid; border-color: var(--hairline); color: var(--charcoal-soft); }
+  .pill.soft:hover{ border-color: var(--gold); }
+
+  /* ====================================================================
+     9. REFEREES
+     ==================================================================== */
+  .referee-note{
+    background: var(--ivory-raised);
+    border: 1px solid var(--hairline);
+    border-left: 2px solid var(--gold);
+    padding: 18px 22px;
+    color: var(--charcoal-soft);
+    font-size: 15px;
+  }
+  .referee-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin-top: 18px;
+  }
+  .referee-card{
+    background: var(--ivory-raised);
+    border: 1px solid var(--hairline);
+    border-left: 2px solid var(--gold);
+    padding: 18px 22px;
+  }
+  .referee-card h3{ font-size: 18px; color: var(--charcoal); }
+  .referee-card .ref-role{ font-size: 13px; color: var(--charcoal-soft); margin: 3px 0 10px; }
+  .referee-card .ref-contact{ font-size: 13.5px; color: var(--gold); }
+
+  /* ====================================================================
+     10. FOOTER (bookends the hero in matching emerald)
+     ==================================================================== */
+  footer.site-footer{
+    background: var(--emerald);
+    color: var(--gold-light);
+    text-align: center;
+    padding: 56px 24px 44px;
+  }
+  footer.site-footer .flourish{ margin-bottom: 26px; }
+  footer.site-footer p{
+    margin: 0;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(231,239,233,0.75);
+  }
+  footer.site-footer p + p{ margin-top: 8px; }
+
+  /* ====================================================================
+     11. SCROLL-REVEAL ANIMATION
+     ==================================================================== */
+  .reveal{ opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.is-visible{ opacity: 1; transform: translateY(0); }
+
+  .hero-fade{ opacity: 0; transform: translateY(10px); transition: opacity 1s ease, transform 1s ease; }
+  .hero-fade.is-visible{ opacity: 1; transform: translateY(0); }
+
+  /* ====================================================================
+     12. RESPONSIVE
+     ==================================================================== */
+  @media (max-width: 720px){
+    .hero{ padding: 84px 20px 48px; }
+    .hero-ornament{ display: none; }
+    .contact-row{ flex-direction: column; gap: 10px; }
+    .contact-row li + li::before{ display: none; }
+    nav.sitenav ul{ justify-content: flex-start; }
+    section{ padding: 52px 0; }
+    .referee-grid{ grid-template-columns: 1fr; }
+  }
+
+  /* ====================================================================
+     13. PRINT (clean single-column resume on "Print / Save as PDF")
+     ==================================================================== */
+  @media print{
+    body{ background: #fff !important; }
+    .hero{ background: #fff !important; color: var(--charcoal) !important; padding: 0 0 24px; text-align: left; }
+    .hero h1{ color: var(--emerald) !important; }
+    .hero-row{ justify-content: flex-start; }
+    .hero-ornament, .flourish, .cv-button{ display: none !important; }
+    .contact-row{ justify-content: flex-start; color: var(--charcoal) !important; }
+    .contact-row a{ color: var(--charcoal) !important; }
+    nav.sitenav{ display: none !important; }
+    section{ padding: 24px 0; border-bottom: none; }
+    footer.site-footer{ background: #fff !important; color: var(--charcoal-soft) !important; padding: 16px 0; text-align: left; }
+    .reveal, .hero-fade{ opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Hidden SVG defs: the leaf icon used everywhere as the page's signature mark -->
+<svg class="icon-defs" aria-hidden="true">
+  <symbol id="leaf" viewBox="0 0 60 40">
+    <path d="M30,38 C18,28 16,14 30,4 C44,14 42,28 30,38 Z" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M30,36 L30,7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+  </symbol>
+</svg>
+
+
+<!-- ================= HERO ================= -->
+<header class="hero">
+  <div class="hero-row">
+    <svg class="hero-ornament" viewBox="0 0 60 132" aria-hidden="true">
+      <use href="#leaf" x="0" y="0"  width="60" height="40" class="t1"/>
+      <use href="#leaf" x="0" y="46" width="60" height="40" class="t2"/>
+      <use href="#leaf" x="0" y="92" width="60" height="40" class="t3"/>
+    </svg>
+
+    <div class="hero-fade">
+      <!-- SECTION: Name & title -->
+      <h1>Ameh Queen Lovina</h1>
+      <p class="role">Pharm.D Student &amp; Pharmacy Technician</p>
+
+      <div class="flourish on-dark" aria-hidden="true">
+        <span class="line"></span>
+        <svg class="sprig" viewBox="0 0 60 40">
+          <use href="#leaf" transform="rotate(-30 30 38)"/>
+          <use href="#leaf"/>
+          <use href="#leaf" transform="rotate(30 30 38)"/>
+        </svg>
+        <span class="line"></span>
+      </div>
+
+      <!-- SECTION: Contact details -->
+      <ul class="contact-row">
+        <li><span>Abuja, Nigeria</span></li>
+        <li><a href="tel:+2349031358290">0903 135 8290</a></li>
+        <li><a href="mailto:amehlovina@gmail.com">amehlovina@gmail.com</a></li>
+      </ul>
+
+      <button class="cv-button" onclick="window.print()">Download / Print CV</button>
+    </div>
+
+    <svg class="hero-ornament right" viewBox="0 0 60 132" aria-hidden="true">
+      <use href="#leaf" x="0" y="0"  width="60" height="40" class="t1"/>
+      <use href="#leaf" x="0" y="46" width="60" height="40" class="t2"/>
+      <use href="#leaf" x="0" y="92" width="60" height="40" class="t3"/>
+    </svg>
+  </div>
+</header>
+
+<!-- ================= NAV ================= -->
+<nav class="sitenav" aria-label="Page sections">
+  <ul>
+    <li><a href="#objective">Objective</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#hobbies">Hobbies</a></li>
+    <li><a href="#referees">Referees</a></li>
+  </ul>
+</nav>
+
+<!-- ================= MAIN CONTENT ================= -->
+<main>
+  <div class="content">
+
+    <!-- SECTION: Objective -->
+    <section id="objective" class="reveal">
+      <span class="eyebrow">Profile</span>
+      <h2 class="section-title">Career Objective</h2>
+      <p class="lead">
+        Dedicated and detail-oriented Doctor of Pharmacy student at Ahmadu Bello
+        University with hands-on experience as a Pharmacy Technician. Skilled in
+        medication dispensing, patient care, and accurate record-keeping, with a
+        strong commitment to patient safety and continuous professional growth.
+        Seeking opportunities to apply clinical knowledge and practical pharmacy
+        experience within a dynamic healthcare team.
+      </p>
+    </section>
+
+    <!-- SECTION: Education -->
+    <section id="education" class="reveal">
+      <span class="eyebrow">Academic Record</span>
+      <h2 class="section-title">Education</h2>
+      <div class="timeline">
+
+        <!-- TIMELINE ITEM -->
+        <div class="timeline-item">
+          <svg class="leaf-mark" viewBox="0 0 60 40"><use href="#leaf"/></svg>
+          <div class="timeline-content">
+            <div class="timeline-head">
+              <h3>Ahmadu Bello University, Zaria</h3>
+              <span class="meta-tag">Expected 2031</span>
+            </div>
+            <p class="timeline-sub">Doctor of Pharmacy (Pharm.D) — currently 100 Level</p>
+          </div>
+        </div>
+        <!-- END TIMELINE ITEM -->
+
+        <!-- TIMELINE ITEM -->
+        <div class="timeline-item">
+          <svg class="leaf-mark" viewBox="0 0 60 40"><use href="#leaf"/></svg>
+          <div class="timeline-content">
+            <div class="timeline-head">
+              <h3>Cisco Academy</h3>
+              <span class="meta-tag">In Progress</span>
+            </div>
+            <p class="timeline-sub">Data Science &amp; Analytics Training Program</p>
+          </div>
+        </div>
+        <!-- END TIMELINE ITEM -->
+
+        <!-- TIMELINE ITEM -->
+        <div class="timeline-item">
+          <svg class="leaf-mark" viewBox="0 0 60 40"><use href="#leaf"/></svg>
+          <div class="timeline-content">
+            <div class="timeline-head">
+              <h3>Government Science and Technical College</h3>
+              <span class="meta-tag">2014</span>
+            </div>
+            <p class="timeline-sub">Secondary School Certificate</p>
+          </div>
+        </div>
+        <!-- END TIMELINE ITEM -->
+
+      </div>
+    </section>
+
+    <!-- SECTION: Experience -->
+    <section id="experience" class="reveal">
+      <span class="eyebrow">Professional History</span>
+      <h2 class="section-title">Work Experience</h2>
+      <div class="timeline">
+
+        <!-- TIMELINE ITEM -->
+        <div class="timeline-item">
+          <svg class="leaf-mark" viewBox="0 0 60 40"><use href="#leaf"/></svg>
+          <div class="timeline-content">
+            <div class="timeline-head">
+              <h3>Pharmacy Technician</h3>
+              <span class="meta-tag">2022 – 2025</span>
+            </div>
+            <p class="timeline-sub">Toruga Pharmacy and Stores, Jabi, Abuja</p>
+            <ul class="responsibility-list">
+              <li>Accurately dispensed medications in line with prescriptions and pharmacy protocols</li>
+              <li>Maintained detailed and organized patient and inventory records</li>
+              <li>Provided attentive patient care and guidance on medication use</li>
+              <li>Carried out medication filling and stock replenishment to ensure consistent availability</li>
+            </ul>
+          </div>
+        </div>
+        <!-- END TIMELINE ITEM -->
+
+      </div>
+    </section>
+
+    <!-- SECTION: Skills -->
+    <section id="skills" class="reveal">
+      <span class="eyebrow">Core Competencies</span>
+      <h2 class="section-title">Skills</h2>
+      <ul class="pill-list">
+        <li class="pill">Data Science &amp; Analytics</li>
+        <li class="pill">Microsoft Word</li>
+        <li class="pill">Microsoft Excel</li>
+        <li class="pill">Communication</li>
+        <li class="pill">Teamwork</li>
+        <li class="pill">Time Management</li>
+        <li class="pill">Research</li>
+        <li class="pill">Customer Service</li>
+      </ul>
+    </section>
+
+    <!-- SECTION: Certifications -->
+    <section id="certifications" class="reveal">
+      <span class="eyebrow">Training &amp; Certification</span>
+      <h2 class="section-title">Certifications</h2>
+      <ul class="pill-list">
+        <li class="pill">Cisco Academy — Data Science/Analytics (Ongoing)</li>
+        <li class="pill">First Aid Training</li>
+        <li class="pill">Computer Training</li>
+        <li class="pill">Leadership Training</li>
+      </ul>
+    </section>
+
+    <!-- SECTION: Hobbies -->
+    <section id="hobbies" class="reveal">
+      <span class="eyebrow">Personal Interests</span>
+      <h2 class="section-title">Hobbies &amp; Interests</h2>
+      <ul class="pill-list">
+        <li class="pill soft">Reading</li>
+        <li class="pill soft">Research</li>
+        <li class="pill soft">Volunteering</li>
+        <li class="pill soft">Cooking</li>
+        <li class="pill soft">Watching Documentaries</li>
+      </ul>
+    </section>
+
+    <!-- SECTION: Referees -->
+    <section id="referees" class="reveal">
+      <span class="eyebrow">References</span>
+      <h2 class="section-title">Referees</h2>
+      <p class="referee-note">Available upon request.</p>
+
+      <!--
+      REFEREE CARD EXAMPLE. Once you have real referee details,
+      remove the comment marker just above this line and the one
+      just below the closing div tag, then duplicate the
+      referee-card block for a second referee.
+
+      <div class="referee-grid">
+        <div class="referee-card">
+          <h3>Dr. Jane Doe</h3>
+          <p class="ref-role">Pharmacist-in-Charge, Toruga Pharmacy and Stores</p>
+          <p class="ref-contact">0800 000 0000 · jane.doe@example.com</p>
+        </div>
+      </div>
+      -->
+    </section>
+
+  </div>
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="flourish on-dark" aria-hidden="true">
+    <span class="line"></span>
+    <svg class="sprig" viewBox="0 0 60 40">
+      <use href="#leaf" transform="rotate(-30 30 38)"/>
+      <use href="#leaf"/>
+      <use href="#leaf" transform="rotate(30 30 38)"/>
+    </svg>
+    <span class="line"></span>
+  </div>
+  <p>&copy; 2026 Ameh Queen Lovina</p>
+  <p>Built as a living document — update anytime</p>
+</footer>
+
+<script>
+  // ======================================================================
+  // Scroll-reveal for sections + active-link highlighting in the nav bar.
+  // Respects prefers-reduced-motion (see CSS above).
+  // ======================================================================
+  (function(){
+    var sections = document.querySelectorAll('section.reveal');
+    var navLinks = document.querySelectorAll('nav.sitenav a');
+    var heroFade = document.querySelector('.hero-fade');
+
+    requestAnimationFrame(function(){
+      setTimeout(function(){ if (heroFade) heroFade.classList.add('is-visible'); }, 80);
+    });
+
+    if ('IntersectionObserver' in window) {
+      var revealObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if (entry.isIntersecting) entry.target.classList.add('is-visible');
+        });
+      }, { threshold: 0.12 });
+      sections.forEach(function(s){ revealObserver.observe(s); });
+
+      var navObserver = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          var link = document.querySelector('nav.sitenav a[href="#' + entry.target.id + '"]');
+          if (!link) return;
+          if (entry.isIntersecting) {
+            navLinks.forEach(function(l){ l.classList.remove('active'); });
+            link.classList.add('active');
+          }
+        });
+      }, { rootMargin: '-40% 0px -50% 0px' });
+      sections.forEach(function(s){ navObserver.observe(s); });
+    } else {
+      sections.forEach(function(s){ s.classList.add('is-visible'); });
+      if (heroFade) heroFade.classList.add('is-visible');
+    }
+  })();
+</script>
+
+</body>
+</html>
